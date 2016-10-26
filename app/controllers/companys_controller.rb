@@ -1,2 +1,0 @@
-class CompanysController < ApplicationController
-end

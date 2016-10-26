@@ -1,0 +1,6 @@
+<%=render 'search' %>
+
+<%=@companies.each do |company| %>
+ <%=company.name %>
+ <%=company.code %>
+<% end %>

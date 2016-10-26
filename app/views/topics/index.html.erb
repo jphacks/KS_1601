@@ -1,0 +1,5 @@
+<% @topics.each do |topic| %>
+ <li><%=link_to topic.title,topic %></li>
+<% end %>
+
+<%=link_to '新規作成',new_topic_path %>

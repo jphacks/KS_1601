@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
   get 'messages/index'
-  root 'application#python'
+  get 'messages_path'=>'message#index'
+  root 'static_pages#home'
+  resources :companies
+  resources :topics do
+    resources :posts
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
