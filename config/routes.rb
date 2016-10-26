@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  get 'messages/index'
-  get 'messages_path'=>'message#index'
-  root 'static_pages#home'
+  root 'companies#index'
   resources :companies
   resources :topics do
     resources :posts
