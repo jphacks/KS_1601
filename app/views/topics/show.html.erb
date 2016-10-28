@@ -1,8 +1,10 @@
 <%=@topic.title %>
 <% @topic.posts.each do |post| %>
- 日付:<%=post.created_at %>
- 本文:<%=post.content %>
- 名前:<%=post.name %>
+ <li>
+   日付:<%=post.created_at %>
+   本文:<%=post.content %>
+   名前:<%=post.name %>
+ </li>
 <% end %>
 
 <%=form_for([@topic,@topic.posts.build]) do |f| %>

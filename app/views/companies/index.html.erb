@@ -1,7 +1,0 @@
-<%=render 'search' %>
-
-<% @topics=Topic.all %>
-
-<% @topics.each do |topic| %>
- <li><%=link_to topic.title,topic %></li>
-<% end %>
