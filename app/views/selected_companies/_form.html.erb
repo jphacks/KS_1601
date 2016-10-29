@@ -1,0 +1,12 @@
+<%=fields_for @selected_company do |f| %>
+  <%=f.label :name,'企業名' %>
+  <%=f.text_field :name %>
+
+  <%=f.label :days,'〜日後' %>
+  <%=f.text_field :days %>
+
+  <%=f.label :runs,'精度' %>
+  <%=f.select :runs,[10,100,1000] %>
+
+  <%=f.submit '解析' %>
+<% end %>
