@@ -1,4 +1,4 @@
-<%=search_form_for @q do |f| %>
+<%=search_form_for(@q,data:{remote:true}) do |f| %>
  <%=f.label :title_cont,"スレッド名" %>
  <%=f.search_field :title_cont %>
 

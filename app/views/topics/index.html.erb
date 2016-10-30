@@ -1,15 +1,19 @@
 <div class="row">
   <div class="col-sm-9">
     <%=render :template=>"selected_companies/new" %>
-    <%= high_chart("sample", @graph) %>
+    <div id="graph">
+      <%= high_chart("sample", @graph) %>
+    </div>
   </div>
 
   <div class="col-sm-3">
     <h1>スレッド一覧</h1>
     <%=link_to "個人チャット",static_pages_skyway_path%>
+    <div id="skyway">
+    </div>
     <%=render 'topics/search' %>
-    <% @topics.each do |topic| %>
-     <li><%=link_to topic.title,topic %></li>
-    <% end %>
+    <div id="search_result">
+      <%=render 'search_result' %>
+    </div>
   </div>
 </div>
