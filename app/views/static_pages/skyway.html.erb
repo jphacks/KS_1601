@@ -8,16 +8,20 @@
     </head>
 
     <body>
-        <div id="myId"></div>
-        <div id="peerId"></div>
-        <input type="text" id="peerId_input"><button id="connect">connect</button>
-        <button id="close">close</button>
-        <div id="talk"></div>
-        <input type="text" id="message"><button id="send">send</button><br>
+      <div class="boxA">
+        <div id="peerId" class="title"></div>
+        <div class="touko">
+        <button id="connect" class="botan">connect</button><input type="text" id="peerId_input"></div>
+        <div id="myId" class="coment"></div>
+        <div id="talk" class="coment2"></div>
+        <div class="touko">
+        <button id="send" class="botan">send</button><input type="text" id="message"></div>
+
         <form name="file_send">
             <input type="file" id="send_file"><br>
         </form>
         <textarea id="file_result" style="width:100%; height:200px; margin:0px 0px 5px 0px;" disabled></textarea>
+      </div>
 
 
         <script>
@@ -48,7 +52,7 @@
                 room.on("data",function(data){
                     if(data === "1"){
                         room.on("data",function(data){
-                            $("#talk").append("<h6>" + room.id + " : " + data + "<h5>");
+                            $("#talk").append("<h5 class='mycome'>" + room.id + " : " + data + "<h5>");
                         });
                     }else if(data === "2"){
                         room.on("data",function(data){
@@ -70,7 +74,7 @@
                 room.on("data",function(data){
                     if(data === "1"){
                         room.on("data",function(data){
-                            $("#talk").append("<h6>" + room.id + " : " + data + "<h5>");
+                            $("#talk").append("<h5 class='mycome'>" + room.id + " : " + data + "<h5>");
                         });
                     }else if(data === "2"){
                         room.on("data",function(data){
@@ -90,7 +94,7 @@
                 // faleとの区別に最初にflagとして決まった文字を返信するのもひとつの手
                 room.send(message);
                 // 自分の画面に表示
-                $("#talk").append("<h6>" + myPeerId + " : " + message + "<h5>");
+                $("#talk").append("<h5 class='opcome'>" + myPeerId + " : " + message + "<h5>");
                 // 送信テキストボックスをクリア
                 $("#message").val("");
             });

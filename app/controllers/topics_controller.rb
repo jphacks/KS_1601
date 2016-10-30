@@ -11,7 +11,6 @@ require 'csv'
 
     @result=get_csv
 
-
     @graph = LazyHighCharts::HighChart.new('graph') do |f|
       f.title(text: '予想推移')
       f.xAxis(categories:(1..364))

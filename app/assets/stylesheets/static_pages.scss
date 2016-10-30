@@ -1,3 +1,169 @@
-// Place all the styles related to the static_pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/** CSS：記述スペース */
+
+.starter-template {
+    padding: 40px 15px;
+    text-align: center;
+}
+
+
+.boxA {
+    width:70%;
+    height:800px;
+    border-style:solid;
+    border-width:1px;
+    border-color:hsla(290,100%,50%,.5);
+    border-radius:10px;
+    margin:0 auto;
+    background-color:hsla(280,100%,90%,.1);
+    margin-top:10px;
+}
+
+
+.title {
+    width:90%;
+    font-size:30px;
+    margin:10px;
+    margin:0 auto;
+    padding:10px;
+    border-style:solid;
+    border-width:1px;
+    border-color:hsla(290,100%,50%,.5);
+    border-radius:10px;
+    background-color:white;
+}
+
+.coment {
+    padding:10px;
+    width:90%;
+    border-style:solid;
+    border-width:1px;
+    border-color:hsla(290,100%,50%,.5);
+    border-radius:10px;
+    margin:0 auto;
+    background-color:white;
+
+
+}
+
+.coment2 {
+    padding-top:10px;
+    height:300px;
+    width:90%;
+    border-style:solid;
+    border-width:1px;
+    border-color:hsla(290,100%,50%,.5);
+    border-radius:10px;
+    margin:0 auto;
+    margin-top:2px;
+    background-color:white;
+    overflow-y:scroll;
+
+}
+
+.coment2::-webkit-scrollbar {
+    all:unset;
+    width:12px;
+    box-shadow: inset 0 0 6px hsla(290,100%,60%,.5);
+    border-radius: 8px;
+    background:transparent;
+}
+.coment2 ::-webkit-scrollbar-track{
+    all:unset;
+    box-shadow: inset 0 0 6px hsla(290,100%,50%,.5);
+    border-radius: 8px;
+    background: transparent;}
+
+.coment2::-webkit-scrollbar-thumb {
+    all:unset;
+    box-shadow: inset 0 0 6px hsla(290,100%,50%,.5);
+    border-radius: 8px;
+    background: transparent;
+}
+.coment2::-webkit-scrollbar-thumb:hover {
+    -webkit-box-shadow: inset 0 0 6px hsla(290,100%,50%,.5);
+}
+
+.touko {
+
+    width:90%;
+/*     border-style:solid;
+border-width:1px;
+border-color:hsla(190,100%,50%,.5);
+border-radius:10px; */
+    margin:0 auto;
+    overflow:hidden;
+}
+
+.text {
+    margin-top:3px;
+    float:left;
+}
+.botan{
+    background-color:hsla(290,100%,80%,.5);
+    padding:3px;
+    text-align:center;
+    height:28px;
+    width:70px;
+    float:left;
+    border-style:solid;
+    border-width:1px;
+    border-color:hsla(290,100%,50%,.5);
+    border-radius:10px;
+    margin-left:3px;
+    margin-top:3px;
+    cursor:pointer;
+}
+.botan:hover {background-color:hsla(290,100%,50%,.5);
+            box-shadow:0px 0px 2px 2px hsla(250,100%,50%,.5);
+}
+.botan:active{background-color:hsla(280,100%,50%,.5);}
+input:foucus {
+    background-color:hsla(280,100%,50%,.3);
+    box-shadow:0px 0px 2px 2px hsla(290,100%,50%,.5);
+}
+
+.opcome {
+    margin:12px;
+    display:inline-block;
+    padding:10px;
+    border-style:solid;
+    border-width:1px;
+    border-color:hsla(290,100%,50%,.5);
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.mycome{
+    margin:12px;
+    margin-right:px;
+    display:inline-block;
+    padding:10px;
+    border-style:solid;
+    border-width:1px;
+    border-color:hsla(290,100%,50%,.5);
+    border-radius:10px;
+    float:right;
+
+}

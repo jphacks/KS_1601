@@ -1,9 +1,7 @@
 <div class="row">
   <div class="col-sm-9">
     <%=render :template=>"selected_companies/new" %>
-    <div id="graph">
-      <%= high_chart("sample", @graph) %>
-    </div>
+    <%= high_chart("sample", @graph) %>
   </div>
 
   <div class="col-sm-3">
