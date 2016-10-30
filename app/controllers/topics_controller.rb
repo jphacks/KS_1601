@@ -15,7 +15,7 @@ require 'csv'
     @graph = LazyHighCharts::HighChart.new('graph') do |f|
       f.title(text: '予想推移')
       f.xAxis(categories:(1..364))
-      f.series(name: '在庫数', data: @result)
+      f.series(name: '調整後終値', data: @result)
     end
   end
 

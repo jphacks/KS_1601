@@ -6,7 +6,7 @@
 
   <div class="col-sm-3">
     <h1>スレッド一覧</h1>
-    <a href="skyway/index.html">個人チャット</a>
+    <%=link_to "個人チャット",static_pages_skyway_path%>
     <%=render 'topics/search' %>
     <% @topics.each do |topic| %>
      <li><%=link_to topic.title,topic %></li>

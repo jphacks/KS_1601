@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'static_pages/skyway'
   root 'topics#index'
   resources :companies
   resources :topics do
