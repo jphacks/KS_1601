@@ -50,14 +50,10 @@
                     $("#peerId").append("<h5>Peer ID : " + room.id + "<h5>");
                 });
                 room.on("data",function(data){
-                    if(data === "1"){
-                        room.on("data",function(data){
-                            $("#talk").append("<h5 class='mycome'>" + room.id + " : " + data + "<h5>");
-                        });
-                    }else if(data === "2"){
-                        room.on("data",function(data){
-                            $("#file_result").append(data);
-                        });
+                    if(data[0] === 1){
+                        $("#talk").append("<h5 class='mycome'>" + room.id + " : " + data[1] + "<h5>");
+                    }else{
+                        $("#file_result").append(data);
                     }
                 });
             });
@@ -72,29 +68,24 @@
                     $("#peerId").append("<h5>Peer ID : " + room.id + "<h5>");
                 });
                 room.on("data",function(data){
-                    if(data === "1"){
-                        room.on("data",function(data){
-                            $("#talk").append("<h5 class='mycome'>" + room.id + " : " + data + "<h5>");
-                        });
-                    }else if(data === "2"){
-                        room.on("data",function(data){
-                            $("#file_result").append(data);
-                        });
+                    if(data[0] === 1){
+                        $("#talk").append("<h5 class='mycome'>" + room.id + " : " + data[1] + "<h5>");
+                    }else{
+                        $("#file_result").append(data);
                     }
                 });
             });
 
             // Sendボタンクリック時の動作
             $("#send").click(function() {
-                //flag
-                room.send("1");
                 // 送信テキストの取得
-                var message = $("#message").val();
+                var message = new Array(2);
+                message[0] = 1;
+                message[1] = $("#message").val();
                 // 送信
-                // faleとの区別に最初にflagとして決まった文字を返信するのもひとつの手
                 room.send(message);
                 // 自分の画面に表示
-                $("#talk").append("<h5 class='opcome'>" + myPeerId + " : " + message + "<h5>");
+                $("#talk").append("<h5 class='opcome'>" + myPeerId + " : " + message[1] + "<h5>");
                 // 送信テキストボックスをクリア
                 $("#message").val("");
             });
@@ -103,8 +94,6 @@
             //　通常のメッセージ送信と区別するためにはflagとして決まった文字を返信するのもひとつの手
             var obj = document.getElementById("send_file");
             obj.addEventListener("change",function(evt){
-                // flag
-                room.send("2");
                 // file 読み込み
                 var file_list = obj.files;
                 var reader = new FileReader();
@@ -114,7 +103,6 @@
                     $("#file_result").append(reader.result);
                 }
             },false);
-
 
             // Closeボタンクリック時の動作
             $("#close").click(function() {
