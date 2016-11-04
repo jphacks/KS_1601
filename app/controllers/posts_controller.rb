@@ -12,7 +12,7 @@ class PostsController < ApplicationController
     @topic=Topic.find(params[:topic_id])
     @post=@topic.posts.create(post_params)
     if @post.save
-      redirect_to @topic
+      render
     else
       render 'new'
     end

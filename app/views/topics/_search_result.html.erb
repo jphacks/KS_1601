@@ -1,5 +1,6 @@
 <ol>
 <% @topics.each do |topic| %>
- <li><%=link_to topic.title,topic %></li>
+ <li><%=link_to topic.title,topic,class:'show'%></li>
 <% end %>
 </ol>
+<div id="topic"></div>
