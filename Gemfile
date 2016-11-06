@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+gem 'chart-js-rails'
+gem 'gon'
+
 gem 'bootstrap-sass'
 gem 'ransack'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
