@@ -8,17 +8,16 @@
     本文:<%=post.content %>
     名前:<%=post.name %>
   </li>
-  <% end %>
+<% end %>
 </br>
 
-<%=form_for([@topic,@topic.posts.build]) do |f| %>
+<%=form_for([@topic,@topic.posts.build],remote:true) do |f| %>
  <%=f.label :name %>
- <%=f.text_field :name %>
+ <%=f.text_field :name,class:"form-control" %>
 
  <%=f.label :content %>
- <%=f.text_area :content %>
- <%=f.submit "Post"%>
+ <%=f.text_area :content,class:"form-control"%>
+ <%=f.submit "Post",class:"btn"%>
 
 <% end %>
-
 </div>

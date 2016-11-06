@@ -4,6 +4,9 @@
 
 /** CSS：記述スペース */
 
+.Boxc{
+  margin: 10px;
+}
 .starter-template {
     padding: 40px 15px;
     text-align: center;
@@ -11,8 +14,6 @@
 
 
 .boxB {
-    width:70%;
-    height:480px;
     border-style:solid;
     border-width:1px;
     border-color:hsla(190,100%,50%,.5);

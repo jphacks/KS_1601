@@ -10,12 +10,8 @@ require 'csv'
     @topics=@q.result(distinct:true)
 
     @result=get_csv
+    gon.csv_data=@result
 
-    @graph = LazyHighCharts::HighChart.new('graph') do |f|
-      f.title(text: '予想推移')
-      f.xAxis(categories:(1..364))
-      f.series(name: '調整後終値', data: @result)
-    end
   end
 
 
@@ -28,9 +24,10 @@ require 'csv'
 
 
   def get_csv
-    csv_data=CSV.table('result.csv')
-    result=csv_data[:result]
-    return result
+    csv_data=CSV.read('result.csv')
+    csv_data.shift
+    csv_data.pop
+    return csv_data
   end
 
   private

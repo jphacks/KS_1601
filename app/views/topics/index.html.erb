@@ -1,17 +1,31 @@
+<%=render 'header' %>
+<div class="Boxc">
 <div class="row">
   <div class="col-sm-9">
     <%=render :template=>"selected_companies/new" %>
-    <%= high_chart("sample", @graph) %>
+
   </div>
 
   <div class="col-sm-3">
-    <h1>スレッド一覧</h1>
-    <%=link_to "個人チャット",static_pages_skyway_path%>
-    <div id="skyway">
-    </div>
-    <%=render 'topics/search' %>
-    <div id="search_result">
-      <%=render 'search_result' %>
+    <ul class="nav nav-tabs">
+      <li class="active">
+        <a href="#tabs-1" data-toggle="tab"}>掲示板</a>
+      </li>
+      <li>
+        <a href="#tabs-2" data-toggle="tab"}>個人チャット</a>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <div id="tabs-1" class="tab-pane active">
+        <%=render 'topics/search' %>
+        <div id="search_result">
+          <%=render 'search_result' %>
+        </div>
+      </div>
+      <div id="tabs-2" class="tab-pane">
+        <%=render :template=>"static_pages/skyway" %>
+      </div>
     </div>
   </div>
+</div>
 </div>
