@@ -1,0 +1,23 @@
+<div class="boxB">
+  <div class="title5">
+    <%=@topic.title %>
+  </div>
+  <% @topic.posts.each do |post| %>
+  <li class="coment5">
+    日付:<%=post.created_at %>
+    本文:<%=post.content %>
+    名前:<%=post.name %>
+  </li>
+<% end %>
+</br>
+
+<%=form_for([@topic,@topic.posts.build]) do |f| %>
+ <%=f.label :name %>
+ <%=f.text_field :name,class:"form-control" %>
+
+ <%=f.label :content %>
+ <%=f.text_area :content,class:"form-control"%>
+ <%=f.submit "Post",class:"btn"%>
+
+<% end %>
+</div>

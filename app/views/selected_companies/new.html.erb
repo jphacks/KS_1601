@@ -1,0 +1,36 @@
+<%=form_for(@selected_company) do |f| %>
+  <%=f.label :name,'企業名' %>
+  <%=f.text_field :name %>
+
+  <%=f.label :days,'〜日後' %>
+  <%=f.text_field :days %>
+
+  <%=f.label :runs,'精度' %>
+  <%=f.select :runs,[10,100,1000] %>
+
+  <%=f.submit '解析',class:"btn" %>
+<% end %>
+
+<canvas id="LineChart"></canvas>
+
+<script>
+ var csv_data1=[];
+ var csv_data2=[];
+ for(var i=0;i<gon.csv_data.length;i++){
+   csv_data1.push(gon.csv_data[i][0]);
+   csv_data2.push(gon.csv_data[i][1]);
+ }
+
+  var ctx = document.getElementById("LineChart");
+  var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: csv_data1,
+      datasets: [
+        { label: "株価", data: csv_data2, backgroundColor: "blue" }
+      ]
+    }
+  });
+
+
+ </script>

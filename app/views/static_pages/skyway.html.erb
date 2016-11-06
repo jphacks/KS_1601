@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>demo</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://skyway.io/dist/0.3/peer.js"></script>
+    </head>
+
+    <body>
+      
+      <div class="boxA">
+        <div id="peerId" class="title"></div>
+        <div class="touko">
+        <button id="connect" class="botan">connect</button><input type="text" id="peerId_input"></div>
+        <div id="myId" class="coment"></div>
+        <div id="talk" class="coment2"></div>
+        <div class="touko">
+        <button id="send" class="botan">send</button><input type="text" id="message"></div>
+
+        <form name="file_send">
+            <input type="file" id="send_file"><br>
+        </form>
+        <textarea id="file_result" style="width:100%; height:200px; margin:0px 0px 5px 0px;" disabled></textarea>
+      </div>
+
+
+        <script>
+        $(document).ready(function () {
+            var APIKEY = '618a0ac8-3049-4460-8002-baf376413ea3';
+            var myPeerId = '';
+            var room = '';
+            //自分のIDの申請
+            var peer = new Peer({key: APIKEY, debug: 3});
+
+            peer.on('error', function(err){
+                 console.error(err);
+            });
+
+            //自分のID取得まで
+            peer.on('open', function(id) {
+                myPeerId = id;
+                $("#myId").append("<h5>My ID : " + id + "<h5>");
+             });
+
+            //相手からチャット開始の宣言が来た場合
+            peer.on('connection', function(dataConnection) {
+                room = dataConnection;
+                console.log("hogehoge");
+                room.on("open",function(){
+                    $("#peerId").append("<h5>Peer ID : " + room.id + "<h5>");
+                });
+                room.on("data",function(data){
+                    if(data[0] === 1){
+                        $("#talk").append("<h5 class='mycome'>" + room.id + " : " + data[1] + "<h5>");
+                    }else{
+                        $("#file_result").append(data);
+                    }
+                });
+            });
+
+            //自分からチャット開始の宣言をする場合
+            $("#connect").click(function(){
+                // 接続先のIDをフォームから取得する
+                var peerId = $('#peerId_input').val();
+                // 相手への接続を開始する
+                room = peer.connect(peerId);
+                room.on("open",function(){
+                    $("#peerId").append("<h5>Peer ID : " + room.id + "<h5>");
+                });
+                room.on("data",function(data){
+                    if(data[0] === 1){
+                        $("#talk").append("<h5 class='mycome'>" + room.id + " : " + data[1] + "<h5>");
+                    }else{
+                        $("#file_result").append(data);
+                    }
+                });
+            });
+
+            // Sendボタンクリック時の動作
+            $("#send").click(function() {
+                // 送信テキストの取得
+                var message = new Array(2);
+                message[0] = 1;
+                message[1] = $("#message").val();
+                // 送信
+                room.send(message);
+                // 自分の画面に表示
+                $("#talk").append("<h5 class='opcome'>" + myPeerId + " : " + message[1] + "<h5>");
+                // 送信テキストボックスをクリア
+                $("#message").val("");
+            });
+
+            // ファイル読み込み
+            //　通常のメッセージ送信と区別するためにはflagとして決まった文字を返信するのもひとつの手
+            var obj = document.getElementById("send_file");
+            obj.addEventListener("change",function(evt){
+                // file 読み込み
+                var file_list = obj.files;
+                var reader = new FileReader();
+                reader.readAsText(file_list[0]);
+                reader.onload = function(ev){
+                    room.send(reader.result);
+                    $("#file_result").append(reader.result);
+                }
+            },false);
+
+            // Closeボタンクリック時の動作
+            $("#close").click(function() {
+                room.close();
+            });
+        });
+        </script>
+    </body>
+</html>
