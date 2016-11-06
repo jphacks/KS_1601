@@ -28,7 +28,7 @@ ruby,python,javscript
 ### 活用した外部技術
 #### API・データ
 * skyway
-* lazy_high_chart
+* chart.js
 
 #### フレームワーク・ライブラリ・モジュール
 * ruby on rails v4.2.5
@@ -40,7 +40,7 @@ ruby,python,javscript
 ### 独自技術
 #### 期間中に開発した独自機能・技術
 * skyway
-* デザイン
+* chart.js
 
 #### 研究内容（任意）
 * 株価解析
