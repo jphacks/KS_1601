@@ -16,7 +16,7 @@ class SelectedCompaniesController < ApplicationController
     @selected_company.code=Company.find_by(name:@selected_company.name).code
     if @selected_company.save
       system("rake temporary:python")
-      redirect_to root_path
+      redirect_to root_url
     else
       render'new'
     end

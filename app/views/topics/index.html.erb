@@ -3,7 +3,7 @@
 <div class="row">
   <div class="col-sm-9">
     <%=render :template=>"selected_companies/new" %>
-    <canvas id="LineChart"></canvas>
+
   </div>
 
   <div class="col-sm-3">
@@ -29,25 +29,3 @@
   </div>
 </div>
 </div>
-
-<script>
- var csv_data1=[];
- var csv_data2=[];
- for(var i=0;i<gon.csv_data.length;i++){
-   csv_data1.push(gon.csv_data[i][0]);
-   csv_data2.push(gon.csv_data[i][1]);
- }
-
-  var ctx = document.getElementById("LineChart");
-  var myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: csv_data1,
-      datasets: [
-        { label: "株価", data: csv_data2, backgroundColor: "blue" }
-      ]
-    }
-  });
-
-
- </script>
