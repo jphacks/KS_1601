@@ -12,6 +12,7 @@
 </br>
 
 <%=form_for([@topic,@topic.posts.build]) do |f| %>
+
  <%=f.label :name %>
  <%=f.text_field :name,class:"form-control" %>
 
